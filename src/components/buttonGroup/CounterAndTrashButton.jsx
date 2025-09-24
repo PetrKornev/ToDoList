@@ -3,10 +3,12 @@ const CounterAndTrashButton = ({ task, setTask }) => {
     setTask((prev) => prev.filter((item) => !item.isCompleted));
   };
   return (
-    <>
-      <div>Осталось дел: {task.length} </div>
-      <button onClick={() => trashCompletedTask()}>Очистить выполненные</button>
-    </>
+    <div className="counter-trash-container">
+      <span>Осталось дел: {task.length} </span>
+      <button className="filter-btn" onClick={() => trashCompletedTask()}>
+        Очистить выполненные
+      </button>
+    </div>
   );
 };
 

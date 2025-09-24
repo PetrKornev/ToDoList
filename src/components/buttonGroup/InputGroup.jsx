@@ -17,7 +17,7 @@ const InputGroup = ({ task, setTask }) => {
     if (newTask.length !== 0 && newTask.trim() === newTask) {
       setTask(() => [
         ...task,
-        { id: ++task.length, nameTask: newTask, isCompleted: false },
+        { id: crypto.randomUUID(), nameTask: newTask, isCompleted: false }
       ]);
       addNewTask('');
     } else {
@@ -26,8 +26,9 @@ const InputGroup = ({ task, setTask }) => {
   };
 
   return (
-    <>
+    <div className="input-container">
       <input
+        className="todo-input"
         placeholder="Введи задачу"
         type="text"
         name="task"
@@ -35,9 +36,11 @@ const InputGroup = ({ task, setTask }) => {
         value={newTask}
         onKeyDown={keyDown}
       />
-      <button onClick={handleClick}>Добавить</button>
-      <p>Нельзя добавить пустую задачу</p>
-    </>
+      <button className="todo-button" onClick={handleClick}>
+        Добавить
+      </button>
+      <p className="error-text">Нельзя добавить пустую задачу</p>
+    </div>
   );
 };
 

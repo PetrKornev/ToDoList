@@ -20,7 +20,7 @@ const TasksList = ({ task, setTask, status }) => {
   });
 
   return (
-    <ul>
+    <ul className="todo-list">
       {filterTasks.map((item) => (
         <List
           key={item.id}

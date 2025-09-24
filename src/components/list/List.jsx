@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
 const List = ({ item, taskCompleted, deleteTask, setTask }) => {
-  const [showInput, setShowInput] = useState(true);
+  const [showInput, setShowInput] = useState(false);
   const [editTask, setEditTask] = useState(item.nameTask);
-  console.log(editTask);
 
   const edit = (e) => {
     setEditTask(e.target.value);
@@ -25,25 +24,33 @@ const List = ({ item, taskCompleted, deleteTask, setTask }) => {
   };
 
   return (
-    <>
-      <li
-        key={item.id}
-        style={{ textDecoration: item.isCompleted ? 'line-through' : 'none' }}
-      >
+    <li className="todo-item">
+      <label className={`task-label ${item.isCompleted ? 'completed' : ''}`}>
         <input
           type="checkbox"
           checked={item.isCompleted}
           onChange={() => taskCompleted(item.id)}
         />
         {showInput ? (
-          item.nameTask
+          <input
+            className="task-edit-input"
+            value={editTask}
+            onChange={edit}
+            onKeyDown={onKey}
+          />
         ) : (
-          <input value={editTask} onChange={edit} onKeyDown={onKey} />
+          <span>{item.nameTask}</span>
         )}
-        <button onClick={() => setShowInput(!showInput)}>Изменить</button>
-        <button onClick={() => deleteTask(item.id)}>Удалить задачу</button>
-      </li>
-    </>
+      </label>
+      <div className="task-actions">
+        <button className="edit-btn" onClick={() => setShowInput(!showInput)}>
+          Изменить
+        </button>
+        <button className="delete-btn" onClick={() => deleteTask(item.id)}>
+          Удалить задачу
+        </button>
+      </div>
+    </li>
   );
 };
 
