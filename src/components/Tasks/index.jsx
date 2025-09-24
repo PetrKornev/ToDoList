@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const List = ({ item, taskCompleted, deleteTask, setTask }) => {
+const Tasks = ({ item, taskCompleted, deleteTask, setTask }) => {
   const [showInput, setShowInput] = useState(false);
   const [editTask, setEditTask] = useState(item.nameTask);
 
@@ -54,4 +54,4 @@ const List = ({ item, taskCompleted, deleteTask, setTask }) => {
   );
 };
 
-export default List;
+export default Tasks;

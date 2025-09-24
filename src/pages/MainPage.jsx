@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import TasksList from '../components/content/TasksList';
-import InputGroup from '../components/buttonGroup/InputGroup';
-import FilterButtonGroup from '../components/buttonGroup/FilterButtonGroup';
-import CounterAndTrashButton from '../components/buttonGroup/CounterAndTrashButton';
-import Header from '../components/header/Header';
+import TasksList from '../components/TasksList';
+import InputGroup from '../components/InputGroup';
+import FilterButtonGroup from '../components/FilterButtonGroup';
+import CounterAndTrashButton from '../components/CounterAndTrashButton';
+import Header from '../components/Header';
 import './App.css';
 
 function MainPage() {

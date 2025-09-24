@@ -1,4 +1,4 @@
-import List from '../list/List';
+import Tasks from '../Tasks';
 
 const TasksList = ({ task, setTask, status }) => {
   const taskCompleted = (id) => {
@@ -22,7 +22,7 @@ const TasksList = ({ task, setTask, status }) => {
   return (
     <ul className="todo-list">
       {filterTasks.map((item) => (
-        <List
+        <Tasks
           key={item.id}
           item={item}
           taskCompleted={taskCompleted}
